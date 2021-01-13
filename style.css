@@ -1,0 +1,201 @@
+body {
+	background: #000 url('stars2.png');
+	margin: 15px;
+	font: normal 11pt rubik, arial, helvetica, sans-serif;
+	color: #fff;
+}
+
+#container {
+	margin: 0 auto;
+}
+
+table#level {
+	border-spacing: 0;
+}
+
+#sidebar,
+#area {
+	vertical-align: top;
+}
+
+#level td {
+	width: 0;
+	height: 0;
+	padding: 5px;
+}
+
+.player {
+	background: #F0A624;
+	border-right: 7px solid #E09705;
+	border-bottom: 7px solid #E09705;
+	border-left: 7px solid #FFB634;
+	border-top: 7px solid #FFB634;
+}
+
+.outside,
+.wall {
+	background: #564F45;
+	border-right: 7px solid #4C453C;
+	border-bottom: 7px solid #4C453C;
+	border-left: 7px solid #665F55;
+	border-top: 7px solid #665F55;
+}
+
+.altWall {
+	background: #998F88;
+	border-right: 7px solid #887F77;
+	border-bottom: 7px solid #887F77;
+	border-left: 7px solid #AA9F99;
+	border-top: 7px solid #AA9F99;
+}
+
+.empty {
+	background: #222;
+	padding: 9px !important;
+	border-left: 3px solid #181818;
+	border-top: 3px solid #181818;
+	border-right: 3px solid #252525;
+	border-bottom: 3px solid #252525;
+}
+
+.exit {
+	background: #069;
+	opacity: 0.5;
+	border-width: 0;
+}
+
+.death {
+	background: #d00;
+	padding: 3px !important;
+	width: 0 !important;
+	height: 0 !important;
+	border-left: 8px solid #f00;
+	border-top: 8px solid #f00;
+	border-right: 8px solid #a00;
+	border-bottom: 8px solid #a00;
+}
+
+.exitPlayer {
+	background: #069;
+	border-right: 7px solid #E09705;
+	border-bottom: 7px solid #E09705;
+	border-left: 7px solid #FFB634;
+	border-top: 7px solid #FFB634;
+}
+
+.deathPlayer {
+	background: #f00;
+	border-right: 7px solid #E09705;
+	border-bottom: 7px solid #E09705;
+	border-left: 7px solid #FFB634;
+	border-top: 7px solid #FFB634;
+}
+
+.failedPlayer {
+	padding: 4px !important;
+	border-left: 4px solid white !important;
+	border-top: 4px solid white !important;
+	border-right: 4px solid #555 !important;
+	border-bottom: 4px solid #555 !important;
+}
+
+.containsLetter {
+	border-width: 3px !important;
+	padding: 0 !important;
+	height: 12px !important;
+	width: 12px !important;
+	text-align: center;
+	font-size: 14px;
+}
+
+.fadedLetter {
+	color: #555 !important;
+}
+
+#sidebar {
+	width: 250px;
+	padding-right: 15px;
+}
+
+.sidebox {
+	background: #222;
+	border-right: 6px solid #4C453C;
+	border-bottom: 6px solid #4C453C;
+	border-top: 6px solid #665F55;
+	border-left: 6px solid #665F55;
+	padding: 10px 10px 0 10px;
+	margin-bottom: 10px;
+}
+
+a {
+	color: #FFB634;
+}
+
+a:hover {
+	color: #E09705;
+	font-style: italic;
+}
+
+#letters div {
+	background: #444;
+	margin: 0 6px 6px 0;
+	padding: 0px 2px;
+	border-right: 5px solid #5C554C;
+	border-bottom: 5px solid #5C554C;
+	border-left: 5px solid #766F65;
+	border-top: 5px solid #766F65;
+	float: left;
+}
+
+.breaker {
+	clear: left;
+	margin-bottom: 3px;
+}
+
+.letter td {
+	width: 1px;
+	height: 1px;
+}
+
+.letter td.on {
+	background: #fff;
+}
+
+.letter td.onplayer {
+	background: #FFB634;
+}
+
+p {
+	margin: 0 0 10px 0;
+	padding: 0;
+	color: #ddd;
+}
+
+p.heading {
+	font-weight: bold;
+	color: #fff;
+}
+
+#levelComplete {
+	display: none;
+}
+
+.levelSuccess {
+	border-right: 6px solid #E09705;
+	border-bottom: 6px solid #E09705;
+	border-top: 6px solid #FFB634;
+	border-left: 6px solid #FFB634;
+}
+
+.levelFail {
+	border-right: 6px solid #AA0000;
+	border-bottom: 6px solid #AA0000;
+	border-top: 6px solid #FF0000;
+	border-left: 6px solid #FF0000;
+}
+
+em {
+	font-weight: bold;
+	font-style: normal;
+	color: #fff;
+}
