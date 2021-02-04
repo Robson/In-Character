@@ -23,13 +23,12 @@ var levels = {
 			"000000000022222",
 			"000000000022222",
 		],
-		initialLetter: "f",
-		startingLetters: "f",
+		initialLetter: "b",
+		startingLetters: "b",
 		startingPosition: { x: 0, y: 2 },
 		gravity: true,
-		message: "Press the left and right arrow keys to move your character. Get to the blue area to complete the level.",
-		fixedX: -5,
-		fixedY: -7,
+		fixed: { x: -5, y: -7 },
+		message: "Press the left and right arrow keys to move your character. Get to the blue area to complete the level."		
 	},
 
 	'Lower': {
@@ -46,9 +45,8 @@ var levels = {
 		startingLetters: "abcdefghijklmnopqrstuvwxyz",
 		startingPosition: { x: 0, y: 2 },
 		gravity: true,
-		message: "Switch between available letters by pressing them on your keyboard.",
-		fixedX: -5,
-		fixedY: -7,
+		fixed: { x: -5, y: -7 },
+		message: "Switch between available letters by pressing them on your keyboard."		
 	},
 
 	'Mind Your Ps and Qs': {
@@ -68,8 +66,7 @@ var levels = {
 		startingLetters: "gpqy",
 		startingPosition: { x: 0, y: -2 },
 		gravity: true,
-		fixedX: -5,
-		fixedY: -6,
+		fixed: { x: -5, y: -6 }
 	},
 
 	'Collection': {
@@ -88,9 +85,8 @@ var levels = {
 		startingLetters: "et",
 		startingPosition: { x: 6, y: 4 },
 		gravity: true,
-		message: "You can collect letters by moving into them.",
-		fixedX: -3,
-		fixedY: -6,
+		fixed: { x: -3, y: -6 },
+		message: "You can collect letters by moving into them."		
 	},
 
 	'Careful now': {
@@ -111,9 +107,8 @@ var levels = {
 		startingLetters: "klmn",
 		startingPosition: { x: 2, y: 1 },
 		gravity: true,
-		message: "Don't fall on the red squares!",
-		fixedX: -3,
-		fixedY: -6,
+		fixed: { x: -3, y: -6 },
+		message: "Don't fall on the red squares!"		
 	},
 
 	'Falling Down': {
@@ -162,8 +157,8 @@ var levels = {
 		startingLetters: "mw",
 		startingPosition: { x: 2, y: -2 },
 		gravity: true,
-		message: "As you've probably noticed, your characters are affected by gravity.",
-		fixedX: -8,
+		fixed: { x: -8, y: null },
+		message: "As you've probably noticed, your characters are affected by gravity."		
 	},
 
 	'Dodger': {
@@ -214,7 +209,7 @@ var levels = {
 		startingLetters: "no",
 		startingPosition: { x: 1, y: -2 },
 		gravity: true,
-		fixedX: -8,
+		fixed: { x: -8, y: null }
 	},
 
 	'Down with this sort of thing': {
@@ -243,8 +238,7 @@ var levels = {
 		startingLetters: "mn",
 		startingPosition: { x: 6, y: -2 },
 		gravity: true,
-		fixedX: -4,
-		fixedY: -1,
+		fixed: { x: -4, y: -1 }
 	},
 
 	'Choices': {
@@ -275,7 +269,7 @@ var levels = {
 		startingLetters: "x",
 		startingPosition: { x: 5, y: -2 },
 		gravity: true,
-		fixedX: -5,
+		fixed: { x: -5, y: null }
 	},
 
 	'Wordplay': {
@@ -309,7 +303,7 @@ var levels = {
 		startingLetters: "lmrt",
 		startingPosition: { x: 13, y: -2 },
 		gravity: true,
-		fixedX: -3,
+		fixed: { x: -3, y: null },
 		message: "Get stuck? Press space to restart."
 	},
 
@@ -327,8 +321,7 @@ var levels = {
 		startingLetters: "bd",
 		startingPosition: { x: 1, y: 0 },
 		gravity: true,
-		fixedX: -2,
-		fixedY: -7,
+		fixed: { x: -2, y: -7 }
 	},
 
 	'The End': {
@@ -347,8 +340,7 @@ var levels = {
 		startingLetters: "io",
 		startingPosition: { x: 7, y: 4 },
 		gravity: true,
-		message: "Thanks for playing :)",
-		fixedX: -3,
-		fixedY: -6,
+		fixed: { x: -3, y: -6 },
+		message: "Thanks for playing :)"
 	},
 };
