@@ -333,6 +333,19 @@ function pressedLetter(keyCode) {
 	}	
 }
 
+function unifyKeyCodes(keyCode) {
+	if (keyCode == KeyEvent.DOM_VK_NUMPAD4) {
+		keyCode = KeyEvent.DOM_VK_LEFT;
+	} else if (keyCode == KeyEvent.DOM_VK_NUMPAD6) {
+		keyCode = KeyEvent.DOM_VK_RIGHT;
+	} else if (keyCode == KeyEvent.DOM_VK_NUMPAD8) {
+		keyCode = KeyEvent.DOM_VK_UP;
+	} else if (keyCode == KeyEvent.DOM_VK_NUMPAD2 || keyCode == KeyEvent.DOM_VK_NUMPAD5) {
+		keyCode = KeyEvent.DOM_VK_DOWN;
+	}
+	return keyCode;				
+}
+
 $(document).ready(function() {
 	$(document).keydown(function(key) {
 		var keyCode = parseInt(key.which, 10);
@@ -343,16 +356,7 @@ $(document).ready(function() {
 			if(keyCode >= KeyEvent.DOM_VK_A && keyCode <= KeyEvent.DOM_VK_Z) {
 				pressedLetter(keyCode);
 			} else {
-				if (keyCode == KeyEvent.DOM_VK_NUMPAD4) {
-					keyCode = KeyEvent.DOM_VK_LEFT;
-				} else if (keyCode == KeyEvent.DOM_VK_NUMPAD6) {
-					keyCode = KeyEvent.DOM_VK_RIGHT;
-				} else if (keyCode == KeyEvent.DOM_VK_NUMPAD8) {
-					keyCode = KeyEvent.DOM_VK_UP;
-				} else if (keyCode == KeyEvent.DOM_VK_NUMPAD2 || keyCode == KeyEvent.DOM_VK_NUMPAD5) {
-					keyCode = KeyEvent.DOM_VK_DOWN;
-				}
-				switch (keyCode) {
+				switch (unifyKeyCodes(keyCode)) {
 					case KeyEvent.DOM_VK_LEFT:
 						movePlayer({ x: -1, y: 0 });
 						key.preventDefault();
