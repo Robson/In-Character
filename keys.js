@@ -115,3 +115,9 @@ var KeyEvent = {
 	DOM_VK_QUOTE: 222,
 	DOM_VK_META: 224
 };
+
+function isUsed(a) {
+	return a;
+}
+
+isUsed(KeyEvent);

@@ -290,3 +290,9 @@ var letters = {
 		  "00000",
 		],
 };
+
+function isUsed(a) {
+	return a;
+}
+
+isUsed(letters);

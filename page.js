@@ -2,7 +2,7 @@ var finishedLevel = false;
 var playerIsDead = false;
 var visibleDistanceHorizontal = 12;
 var visibleDistanceVertical = 10;
-var display = new Array(visibleDistanceVertical * 2 + 1).fill(0).map(a => new Array(visibleDistanceHorizontal * 2 + 1));
+var display = new Array(visibleDistanceVertical * 2 + 1).fill(0).map(a => new Array(visibleDistanceHorizontal * 2 + 1 + a));
 var lettersOnGrid = new Array(visibleDistanceVertical * 2 + 1);
 var offset = { x: 0, y: 0 };
 var fixed = { x: 0, y: 0 };
@@ -11,7 +11,6 @@ var gravityTimer,
 	level,
 	levelHasGravity,
 	availableLetters,
-	playerLetters,
 	playerSquares
 
 function makeInitialTable() {
@@ -367,6 +366,12 @@ $(document).ready(function() {
 		}
 	});
 });
+
+function isUsed(a) {
+	return a;
+}
+
+isUsed(KeyEvent);
 
 makeInitialTable();
 startLevel(levelNames[0]);

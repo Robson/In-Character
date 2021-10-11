@@ -344,3 +344,9 @@ var levels = {
 		message: "Thanks for playing :)"
 	},
 };
+
+function isUsed(a) {
+	return a;
+}
+
+isUsed(levelNames, levels);
