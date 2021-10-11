@@ -314,19 +314,23 @@ function levelSelectChanged() {
 	$("#levelSelect").blur();
 }
 
+function pressedSpace() {
+	var index = document.getElementById("levelSelect").selectedIndex;
+	var max = document.getElementById("levelSelect").options.length;
+	if(!playerIsDead && finishedLevel) {
+		index++;
+	}
+	if(index < max) {
+		document.getElementById("levelSelect").selectedIndex = index;
+		levelSelectChanged();
+	}	
+}
+
 $(document).ready(function() {
 	$(document).keydown(function(key) {
 		var keyCode = parseInt(key.which, 10);
 		if(keyCode == KeyEvent.DOM_VK_SPACE) {
-			var index = document.getElementById("levelSelect").selectedIndex;
-			var max = document.getElementById("levelSelect").options.length;
-			if(!playerIsDead && finishedLevel) {
-				index++;
-			}
-			if(index < max) {
-				document.getElementById("levelSelect").selectedIndex = index;
-				levelSelectChanged();
-			}
+			pressedSpace();
 		}
 		if(!finishedLevel) {
 			if(keyCode >= KeyEvent.DOM_VK_A && keyCode <= KeyEvent.DOM_VK_Z) {
