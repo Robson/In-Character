@@ -345,6 +345,12 @@ $(document).ready(function() {
 			} else {
 				if (keyCode == KeyEvent.DOM_VK_NUMPAD4) {
 					keyCode = KeyEvent.DOM_VK_LEFT;
+				} else if (keyCode == KeyEvent.DOM_VK_NUMPAD6) {
+					keyCode = KeyEvent.DOM_VK_RIGHT;
+				} else if (keyCode == KeyEvent.DOM_VK_NUMPAD8) {
+					keyCode = KeyEvent.DOM_VK_UP;
+				} else if (keyCode == KeyEvent.DOM_VK_NUMPAD2 || keyCode == KeyEvent.DOM_VK_NUMPAD5) {
+					keyCode = KeyEvent.DOM_VK_DOWN;
 				}
 				switch (keyCode) {
 					case KeyEvent.DOM_VK_LEFT:
@@ -352,20 +358,16 @@ $(document).ready(function() {
 						key.preventDefault();
 						break;
 					case KeyEvent.DOM_VK_RIGHT:
-					case KeyEvent.DOM_VK_NUMPAD6:
 						movePlayer({ x: 1, y: 0 });
 						key.preventDefault();
 						break;
 					case KeyEvent.DOM_VK_UP:
-					case KeyEvent.DOM_VK_NUMPAD8:
 						if(!levelHasGravity) {
 							movePlayer({ x: 0, y: -1 });
 							key.preventDefault();
 						}
 						break;
 					case KeyEvent.DOM_VK_DOWN:
-					case KeyEvent.DOM_VK_NUMPAD2:
-					case KeyEvent.DOM_VK_NUMPAD5:
 						if(!levelHasGravity) {
 							movePlayer({ x: 0, y: 1 });
 							key.preventDefault();
