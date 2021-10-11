@@ -343,9 +343,11 @@ $(document).ready(function() {
 			if(keyCode >= KeyEvent.DOM_VK_A && keyCode <= KeyEvent.DOM_VK_Z) {
 				pressedLetter(keyCode);
 			} else {
+				if (keyCode == KeyEvent.DOM_VK_NUMPAD4) {
+					keyCode = KeyEvent.DOM_VK_LEFT;
+				}
 				switch (keyCode) {
 					case KeyEvent.DOM_VK_LEFT:
-					case KeyEvent.DOM_VK_NUMPAD4:
 						movePlayer({ x: -1, y: 0 });
 						key.preventDefault();
 						break;
