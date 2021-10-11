@@ -326,6 +326,13 @@ function pressedSpace() {
 	}	
 }
 
+function pressedLetter(keyCode) {
+	var character = String.fromCharCode(keyCode).toLowerCase();
+	if(availableLetters.includes(character)) {
+		changeLetter(character);
+	}	
+}
+
 $(document).ready(function() {
 	$(document).keydown(function(key) {
 		var keyCode = parseInt(key.which, 10);
@@ -334,10 +341,7 @@ $(document).ready(function() {
 		}
 		if(!finishedLevel) {
 			if(keyCode >= KeyEvent.DOM_VK_A && keyCode <= KeyEvent.DOM_VK_Z) {
-				var character = String.fromCharCode(keyCode).toLowerCase();
-				if(availableLetters.includes(character)) {
-					changeLetter(character);
-				}
+				pressedLetter(keyCode);
 			} else {
 				switch (keyCode) {
 					case KeyEvent.DOM_VK_LEFT:
