@@ -123,7 +123,7 @@ table#level {
 	border-bottom: 6px solid #4C453C;
 	border-top: 6px solid #665F55;
 	border-left: 6px solid #665F55;
-	padding: 10px 10px 0 10px;
+	padding: 10px 10px 0;
 	margin-bottom: 10px;
 }
 
@@ -139,7 +139,7 @@ a:hover {
 #letters div {
 	background: #444;
 	margin: 0 6px 6px 0;
-	padding: 0px 2px;
+	padding: 0 2px;
 	border-right: 5px solid #5C554C;
 	border-bottom: 5px solid #5C554C;
 	border-left: 5px solid #766F65;
@@ -166,7 +166,7 @@ a:hover {
 }
 
 p {
-	margin: 0 0 10px 0;
+	margin: 0 0 10px;
 	padding: 0;
 	color: #ddd;
 }
