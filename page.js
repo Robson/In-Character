@@ -5,7 +5,7 @@ var visibleDistanceVertical = 10;
 var display = new Array(visibleDistanceVertical * 2 + 1).fill(0).map(a => new Array(visibleDistanceHorizontal * 2 + 1 + a));
 var lettersOnGrid = new Array(visibleDistanceVertical * 2 + 1);
 var offset = { x: 0, y: 0 };
-var fixed = { x: 0, y: 0 };
+var fixed =  { x: 0, y: 0 };
 var player = { x: 0, y: 0 };
 var gravityTimer,
 	level,
@@ -33,7 +33,7 @@ function startLevel(levelName) {
 	offset.x = (playerSquares[0].length - 1) / 2;
 	offset.y = (playerSquares.length - 1) / 2;
 	player.x = levels[levelName].startingPosition.x;
-	player.y = levels[levelName].startingPosition.y;	
+	player.y = levels[levelName].startingPosition.y;
 	fixed.x = levels[levelName].fixed.x;
 	fixed.y = levels[levelName].fixed.y;
 	$('#levelComplete').css('display', 'none');
@@ -51,7 +51,7 @@ function startLevel(levelName) {
 		$('#levelMessage').css('display', 'none');
 	} else {
 		$('#levelMessage').html("<p class='heading'>Level Hint</p><p>" + levels[levelName].message + '</p>');
-		$('#levelMessage').css('display', 'block');		
+		$('#levelMessage').css('display', 'block');
 	}
 }
 
@@ -65,16 +65,16 @@ function updateArea() {
 	makeInitialDisplay();
 	var start = {};
 	start.x = fixed.x == null ? visibleDistanceHorizontal - offset.x : player.x - fixed.x;
-	start.y = fixed.y == null ? visibleDistanceVertical - offset.y : player.y - fixed.y;
+	start.y = fixed.y == null ? visibleDistanceVertical   - offset.y : player.y - fixed.y;
 	for(var y = 0; y < playerSquares.length; y++) {
 		for(var x = 0; x < playerSquares.length; x++) {
 			if(playerSquares[y][x] == 1) {
-				if(display[y + start.y][x + start.x] == "death") {
-					display[y + start.y][x + start.x] = "deathPlayer";
-				} else if(display[y + start.y][x + start.x] == "exit") {
-					display[y + start.y][x + start.x] = "exitPlayer";
+				if(display[y + start.y][x + start.x] == 'death') {
+					display[y + start.y][x + start.x] = 'deathPlayer';
+				} else if(display[y + start.y][x + start.x] == 'exit') {
+					display[y + start.y][x + start.x] = 'exitPlayer';
 				} else {
-					display[y + start.y][x + start.x] = "player";
+					display[y + start.y][x + start.x] = 'player';
 				}
 			}
 		}
@@ -86,11 +86,11 @@ function showFailedLetter(failedLetter) {
 	makeInitialDisplay();
 	var start = {};
 	start.x = fixed.x == null ? visibleDistanceHorizontal - offset.x : player.x - fixed.x;
-	start.y = fixed.y == null ? visibleDistanceVertical - offset.y : player.y - fixed.y;
+	start.y = fixed.y == null ? visibleDistanceVertical   - offset.y : player.y - fixed.y;
 	for(var y = 0; y < failedLetter.length; y++) {
 		for(var x = 0; x < failedLetter.length; x++) {
 			if(failedLetter[y][x] == 1) {
-				display[y + start.y][x + start.x] += " failedPlayer";
+				display[y + start.y][x + start.x] += ' failedPlayer';
 			}
 		}
 	}
@@ -101,31 +101,31 @@ function showFailedLetter(failedLetter) {
 function makeInitialDisplay() {
 	var start = {};
 	start.x = fixed.x == null ? player.x - visibleDistanceHorizontal + offset.x : fixed.x;
-	start.y = fixed.y == null ? player.y - visibleDistanceVertical + offset.y : fixed.y;
+	start.y = fixed.y == null ? player.y - visibleDistanceVertical   + offset.y : fixed.y;
 	for(var y = start.y; y <= start.y + visibleDistanceVertical * 2; y++) {
 		lettersOnGrid[y - start.y] = new Array(visibleDistanceHorizontal * 2 + 1);
 		for(var x = start.x; x <= start.x + visibleDistanceHorizontal * 2; x++) {
-			var squareClass = "outside";
+			var squareClass = 'outside';
 			if(x >= 0 && y >= 0 && y < level.length && x < level[0].length) {
 				switch (level[y][x]) {
-					case "0":
-						squareClass = "empty";
+					case '0':
+						squareClass = 'empty';
 						break;
-					case "1":
-						squareClass = "wall";
+					case '1':
+						squareClass = 'wall';
 						break;
-					case "2":
-						squareClass = "exit";
+					case '2':
+						squareClass = 'exit';
 						break;
-					case "3":
-						squareClass = "death";
+					case '3':
+						squareClass = 'death';
 						break;
-					case "4":
-						squareClass = "altWall";
+					case '4':
+						squareClass = 'altWall';
 						break;
 					default:
 						lettersOnGrid[y - start.y][x - start.x] = level[y][x];
-						squareClass = "empty";
+						squareClass = 'empty';
 						break;
 				}
 			}
@@ -138,14 +138,14 @@ function displayDataOnScreen() {
 	$('.temp').remove();
 	for(var y = 0; y < display.length; y++) {
 		for(var x = 0; x < display[0].length; x++) {
-			var square = $('#' + y + "_" + x);
-			square.attr("class", display[y][x]);
+			var square = $('#' + y + '_' + x);
+			square.attr('class', display[y][x]);
 			var displayedLetter = false;
 			if (!displayedLetter && lettersOnGrid[y][x] != null) {
-				square.attr("class", square.attr("class") + " containsLetter" + (finishedLevel ? " fadedLetter" : ""));
+				square.attr('class', square.attr('class') + ' containsLetter' + (finishedLevel ? ' fadedLetter' : ''));
 				square.append("<div>");
 				var div = $('#' + y + '_' + x + ' div')
-				div.attr("class", "temp");
+				div.attr('class', 'temp');
 				div.html(lettersOnGrid[y][x]);
 			}
 		}
@@ -161,7 +161,6 @@ function movePlayer(move) {
 				} else {
 					switch (level[player.y + move.y + y][player.x + move.x + x]) {
 						case '1':
-							return;
 						case '4':
 							return;
 					}
@@ -182,16 +181,16 @@ function movePlayer(move) {
 
 function changeLetter(letter) {
 	var validLetter = true;
-	for(var x = 0; x < letters["a"][0].length; x++) {
-		for(var y = 0; y < letters["a"].length; y++) {
-			if(letters[letter][y][x] == "1") {
+	for(var x = 0; x < letters['a'][0].length; x++) {
+		for(var y = 0; y < letters['a'].length; y++) {
+			if(letters[letter][y][x] == '1') {
 				if(player.x + x < 0 || player.y + y < 0 || player.x + x >= level[0].length || player.y + y >= level.length) {
 					validLetter = false;
 				} else {
 					switch (level[player.y + y][player.x + x]) {
-						case "1":
-						case "3":
-						case "4":
+						case '1':
+						case '3':
+						case '4':
 							validLetter = false;
 							break;
 					}
@@ -213,13 +212,13 @@ function changeLetter(letter) {
 
 function checkLetterCollect() {
 	var collectedLetter = false;
-	for(var x = 0; x < letters["a"][0].length; x++) {
-		for(var y = 0; y < letters["a"].length; y++) {
-			if(playerSquares[y][x] == "1") {
-				if(level[player.y + y][player.x + x] >= "a" && level[player.y + y][player.x + x] <= "z") {
+	for(var x = 0; x < letters['a'][0].length; x++) {
+		for(var y = 0; y < letters['a'].length; y++) {
+			if(playerSquares[y][x] == '1') {
+				if(level[player.y + y][player.x + x] >= 'a' && level[player.y + y][player.x + x] <= 'z') {
 					availableLetters.push(level[player.y + y][player.x + x]);
 					availableLetters.sort();
-					level[player.y + y] = replaceCharacter(level[player.y + y], player.x + x, "0");
+					level[player.y + y] = replaceCharacter(level[player.y + y], player.x + x, '0');
 					collectedLetter = true;
 				}
 			}
@@ -232,10 +231,10 @@ function checkLetterCollect() {
 
 function checkLose() {
 	var hasDied = false;
-	for(var x = 0; x < letters["a"][0].length; x++) {
-		for(var y = 0; y < letters["a"].length; y++) {
-			if(playerSquares[y][x] == "1") {
-				if(level[player.y + y][player.x + x] == "3") {
+	for(var x = 0; x < letters['a'][0].length; x++) {
+		for(var y = 0; y < letters['a'].length; y++) {
+			if(playerSquares[y][x] == '1') {
+				if(level[player.y + y][player.x + x] == '3') {
 					hasDied = true;
 				}
 			}
@@ -254,10 +253,10 @@ function checkLose() {
 }
 
 function checkWin() {
-	for(var x = 0; x < letters["a"][0].length; x++) {
-		for(var y = 0; y < letters["a"].length; y++) {
-			if(playerSquares[y][x] == "1") {
-				if(level[player.y + y][player.x + x] != "2") {
+	for(var x = 0; x < letters['a'][0].length; x++) {
+		for(var y = 0; y < letters['a'].length; y++) {
+			if(playerSquares[y][x] == '1') {
+				if(level[player.y + y][player.x + x] != '2') {
 					return;
 				}
 			}
@@ -265,7 +264,7 @@ function checkWin() {
 	}
 	$('#levelComplete .heading').text('Level complete!');
 	$('#levelComplete .body').text('Press space to continue.');
-	$('#levelComplete').css('display', 'block');		
+	$('#levelComplete').css('display', 'block');
 	$('#levelComplete').removeClass('levelFail');
 	$('#levelComplete').addClass('levelSuccess');
 	finishedLevel = true;
@@ -273,9 +272,9 @@ function checkWin() {
 }
 
 function showAvailableLetters() {
-	var h = "";
+	var h = '';
 	for(var i = 0; i < availableLetters.length; i++) {
-		h += "<div>" + letterToTable(availableLetters[i]) + "</div>";
+		h += '<div>' + letterToTable(availableLetters[i]) + '</div>';
 	}
 	$('#letters').html(h);
 }
@@ -283,7 +282,7 @@ function showAvailableLetters() {
 function letterToTable(letter) {
 	var table = "<table cellspacing='0' class='letter'>";
 	for(var y = 0; y < letters[letter].length; y++) {
-		table += "<tr>";
+		table += '<tr>';
 		for(var x = 0; x < letters[letter][0].length; x++) {
 			if(letters[letter][y][x] == 1) {
 				if(letter == playerLetter) {
@@ -295,9 +294,9 @@ function letterToTable(letter) {
 				table += "<td class='off'></td>";
 			}
 		}
-		table += "</tr>";
+		table += '</tr>';
 	}
-	table += "</table>";
+	table += '</table>';
 	return table;
 }
 
@@ -310,27 +309,27 @@ function replaceCharacter(text, index, character) {
 }
 
 function levelSelectChanged() {
-	startLevel(getListValue("levelSelect"));
-	$("#levelSelect").blur();
+	startLevel(getListValue('levelSelect'));
+	$('#levelSelect').blur();
 }
 
 function pressedSpace() {
-	var index = document.getElementById("levelSelect").selectedIndex;
-	var max = document.getElementById("levelSelect").options.length;
+	var index = document.getElementById('levelSelect').selectedIndex;
+	var max = document.getElementById('levelSelect').options.length;
 	if(!playerIsDead && finishedLevel) {
 		index++;
 	}
 	if(index < max) {
-		document.getElementById("levelSelect").selectedIndex = index;
+		document.getElementById('levelSelect').selectedIndex = index;
 		levelSelectChanged();
-	}	
+	}
 }
 
 function pressedLetter(keyCode) {
 	var character = String.fromCharCode(keyCode).toLowerCase();
 	if(availableLetters.includes(character)) {
 		changeLetter(character);
-	}	
+	}
 }
 
 function unifyKeyCodes(keyCode) {
@@ -343,7 +342,7 @@ function unifyKeyCodes(keyCode) {
 	} else if (keyCode == KeyEvent.DOM_VK_NUMPAD2 || keyCode == KeyEvent.DOM_VK_NUMPAD5) {
 		keyCode = KeyEvent.DOM_VK_DOWN;
 	}
-	return keyCode;				
+	return keyCode;
 }
 
 $(document).ready(function() {
@@ -390,7 +389,7 @@ function isUsed(a) {
 isUsed(KeyEvent);
 
 makeInitialTable();
-startLevel(levelNames[0]);
-document.getElementById("levelSelect").onchange = levelSelectChanged;
-document.getElementById("levelSelect").onkeyup = levelSelectChanged;
-document.getElementById("levelSelect").selectedIndex = 0;
+startLevel(Object.keys(levels)[0]);
+document.getElementById('levelSelect').onchange = levelSelectChanged;
+document.getElementById('levelSelect').onkeyup = levelSelectChanged;
+document.getElementById('levelSelect').selectedIndex = 0;

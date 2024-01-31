@@ -58,8 +58,8 @@
 					<p class="heading">Jump to Level</p>
 					<p><select id="levelSelect">
 						<script>
-						for(var i = 0; i < levelNames.length; i++) {
-							document.write("<option value='" + levelNames[i] + "'>" + levelNames[i] + "</option>\n");
+						for (var level of Object.keys(levels)) {
+							document.write("<option value='" + level + "'>" + level + "</option>\n");
 						}
 						</script>
 					</select></p>

@@ -1,4 +1,4 @@
-var levelNames = [
+var xlevelNames = [
 	"Safety First",
 	"Lower",
 	"Mind Your Ps and Qs",
@@ -28,7 +28,7 @@ var levels = {
 		startingPosition: { x: 0, y: 2 },
 		gravity: true,
 		fixed: { x: -5, y: -7 },
-		message: "Press the left and right arrow keys to move your character. Get to the blue area to complete the level."		
+		message: "Press the left and right arrow keys to move your character. Get to the blue area to complete the level."
 	},
 
 	'Lower': {
@@ -46,7 +46,7 @@ var levels = {
 		startingPosition: { x: 0, y: 2 },
 		gravity: true,
 		fixed: { x: -5, y: -7 },
-		message: "Switch between available letters by pressing them on your keyboard."		
+		message: "Switch between available letters by pressing them on your keyboard."
 	},
 
 	'Mind Your Ps and Qs': {
@@ -86,7 +86,7 @@ var levels = {
 		startingPosition: { x: 6, y: 4 },
 		gravity: true,
 		fixed: { x: -3, y: -6 },
-		message: "You can collect letters by moving into them."		
+		message: "You can collect letters by moving into them."
 	},
 
 	'Careful now': {
@@ -108,7 +108,7 @@ var levels = {
 		startingPosition: { x: 2, y: 1 },
 		gravity: true,
 		fixed: { x: -3, y: -6 },
-		message: "Don't fall on the red squares!"		
+		message: "Don't fall on the red squares!"
 	},
 
 	'Falling Down': {
@@ -158,7 +158,7 @@ var levels = {
 		startingPosition: { x: 2, y: -2 },
 		gravity: true,
 		fixed: { x: -8, y: null },
-		message: "As you've probably noticed, your characters are affected by gravity."		
+		message: "As you've probably noticed, your characters are affected by gravity."
 	},
 
 	'Dodger': {
@@ -272,6 +272,7 @@ var levels = {
 		fixed: { x: -5, y: null }
 	},
 
+/*
 	'Wordplay': {
 		grid: [
 			"0000000000000000000",
@@ -306,6 +307,7 @@ var levels = {
 		fixed: { x: -3, y: null },
 		message: "Get stuck? Press space to restart."
 	},
+*/
 
 	'Hanging around': {
 		grid: [
@@ -344,9 +346,3 @@ var levels = {
 		message: "Thanks for playing :)"
 	},
 };
-
-function isUsed(a) {
-	return a;
-}
-
-isUsed(levelNames, levels);
