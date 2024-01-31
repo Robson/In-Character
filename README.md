@@ -6,6 +6,7 @@
  * [Live Version](#live-version)
  * [Compatibility](#compatibility)
  * [Testing](#testing)
+ * [File Descriptions](#file-descriptions)
  * [Technologies](#technologies)
  * [Validation](#validation)
 
@@ -36,6 +37,36 @@ To run this on your computer:
  * [Download the repository](https://github.com/Robson/In-Character/archive/master.zip).
  * Unzip anywhere.
  * Open *index.html* in your browser.
+ 
+## File Descriptions
+
+### index.html
+
+This is the webpage that everything else is loaded into. This has been kept as simple as possible, so it mostly links to the stylesheet and JavaScript files.
+
+### keys.js
+
+This is a list of keyboard keys and their associated numbers in JavaScript.
+
+### letters.js
+
+This contains the shape of every letter of the alphabet. It also contains some special characters, but these aren't used.
+
+### levels.js
+
+This contains the levels in the order they are played. Each level has data such as the name, layout, starting letter, starting position, etc. New levels can be added by just editing this file.
+
+### page.js
+
+This is the JavaScript that makes everything work.
+
+### stars1.png & stars2.png
+
+This is the background of the page.
+
+### style.css
+
+This is where all the formatting is stored.
 
 ## Technologies
 
